@@ -1,0 +1,61 @@
+<% layout("/layouts/boilerplate") %>
+<link rel="stylesheet" href="/login.css" />
+
+<div class="container py-5">
+  <div class="auth-container">
+    <h3 class="heading">Wanderlust</h3>
+    <form
+      class="auth-form needs-validation"
+      id="signupForm"
+      action="/signup"
+      method="POST"
+    >
+      <form class="auth-form" id="loginForm">
+        <h2 class="mb-4 text-center">Sign up</h2>
+
+        <div class="input-group">
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Enter Email"
+            id="email"
+            required
+            name="email"
+          />
+          <i class="fas fa-user input-icon"></i>
+        </div>
+
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter username"
+            name="username"
+            id="username"
+            required
+          />
+          <i class="fas fa-user input-icon"></i>
+        </div>
+
+        <div class="input-group">
+          <input type="password" class="form-control" placeholder="Password" required name="password" id="password"/>
+          <i class="fas fa-lock input-icon"></i>
+          <i
+            class="fas fa-eye password-toggle"
+            onclick="togglePassword(this)"
+          ></i>
+        </div>
+
+        <button class="btn-auth btn w-100 mb-3">Sign up</button>
+      </form>
+    </form>
+  </div>
+</div>
+
+<script>
+  function togglePassword(icon) {
+    const input = icon.previousElementSibling;
+    input.type = input.type === "password" ? "text" : "password";
+    icon.classList.toggle("fa-eye-slash");
+  }
+</script>
